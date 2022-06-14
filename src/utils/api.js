@@ -11,6 +11,12 @@ export function fetchArticles(params) {
 	});
 }
 
+export function fetchArticle(article_id) {
+	return shoutValleyApi.get(`/articles/${article_id}`).then(({data}) => {
+		return data.article;
+	});
+};
+
 export function fetchTopics() {
 	return shoutValleyApi.get(`/topics`).then(({ data }) => {
 		return data.topics;

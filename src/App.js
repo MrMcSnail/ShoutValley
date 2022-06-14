@@ -3,7 +3,7 @@ import Header from "./components/header";
 import NavBar from "./components/nav-bar";
 import ArticleListContainer from "./components/article-list-container";
 import { Routes, Route } from "react-router-dom";
-import TopiclListContainer from "./components/topic-list-container";
+import ArticleContainer from "./components/article-container";
 
 function App() {
 	return (
@@ -14,6 +14,7 @@ function App() {
 				<Routes>
 					<Route path='/' element={<ArticleListContainer />} />
 					<Route path='/articles' element={<ArticleListContainer />} />
+					<Route path='/articles/:article_id' element={<ArticleContainer />} />
 				</Routes>
 			</main>
 		</div>

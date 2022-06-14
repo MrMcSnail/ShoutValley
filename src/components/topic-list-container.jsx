@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { fetchTopics } from "../utils/api";
 
 export default function TopiclListContainer() {
@@ -23,7 +23,9 @@ export default function TopiclListContainer() {
 
 	const topicsList = topics.map((topic) => {
 		return (
-				<Link to={`/articles?topic=${topic.slug}`} >{topic.slug}</Link>
+			<NavLink to={`/articles?topic=${topic.slug}`} key={topic.slug}>
+				{topic.slug}
+			</NavLink>
 		);
 	});
 
