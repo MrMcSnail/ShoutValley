@@ -1,38 +1,49 @@
 .App {
-  text-align: center;
+	text-align: center;
+	font-family: "Nunito", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.article-list {
+	padding: 1rem;
+	list-style: none;
+	display: flex;
+	direction: row;
+	justify-content: center;
+	align-content: center;
+	flex-wrap: wrap;
+	flex-direction: row;
+	gap: 2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.article-card {
+	border-radius: 5%;
+	box-shadow: 5px 10px 50px rgb(196, 196, 255);
+	padding: 1rem;
+	width: 350px;
+  flex: 25%;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.article-card__title {
 }
-
-.App-link {
-  color: #61dafb;
+.article-card__subheading {
+		padding: 0 5% ;
+    color: rgb(128, 128, 128);
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.article-card__additional-info-box {
+	padding: 0 5%;
+	display: grid;
+	grid-template-columns: 50% 50%;
+	gap: 1rem;
+}
+.article-card__additional-info {
+	width: fit-content;
+	color: gray;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-wrap: nowrap;
+	align-content: center;
+	flex-direction: row;
 }

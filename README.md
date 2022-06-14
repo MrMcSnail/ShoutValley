@@ -1,3 +1,11 @@
+# ShoutValley
+
+**ShoutValley** is a social news aggregation, web content rating, and discussion website.
+
+**ShoutValley** has articles which are divided into topics. Each article has user curated ratings and can be up or down voted using the API. Users can also add comments about an article.
+
+This project consolidated my understanding of making a [C.R.U.D](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) application from a front end perspective.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
