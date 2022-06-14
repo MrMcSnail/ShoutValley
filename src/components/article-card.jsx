@@ -1,5 +1,3 @@
-import Card from "@mui/material/Card";
-import { Link } from "react-router-dom";
 import createTimestamp from "../utils/create-timestamp";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import CommentIcon from "@mui/icons-material/Comment";
@@ -19,8 +17,8 @@ const ArticleCard = ({article}) => {
   const dateData = new Date(created_at);
   return (
 		<li key={article_id} className='article-card'>
+			{/* <Link to={`/articles/${article_id}`}  */}
 			<h2 className='article-card__title'>{title}</h2>
-
 			<section className='article-card__subheading'>
 				<TopicIcon />
 				<p>{topic}</p>

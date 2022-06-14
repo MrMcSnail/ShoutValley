@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
+import TopiclListContainer from "./topic-list-container";
 
 export default function NavBar() {
-	return <nav className='nav-bar'>
-    <Link to="/topics">Topics</Link>
-  </ nav>;
+	return (
+			<div class='dropdown'>
+				<button class='dropbtn'>Topics</button>
+				<div class='dropdown-content'>
+					<TopiclListContainer />
+				</div>
+			</div>
+	);
 }
