@@ -1,10 +1,10 @@
 :root {
-	--black: #000000;
-	--blue: #14213e;
-	--yellow: #fda312;
-	--grey: #e6e6e6;
+	--colourA: #48233C;
+	--colourB: #40376e;
+	--colourC: #36558F89;
+	--colourD: #96ACB7;
 	--white: #ffffff;
-	accent-color: var(--yellow);
+	accent-color: var(--colourC);
 }
 
 .App {
@@ -15,7 +15,8 @@
 	'main';
 	text-align: center;
 	font-family: "Nunito", sans-serif;
-	color: var(--blue);
+	color: var(--colourB);
+	background-color: var(--colourA);
 }
 
 .app__title {
@@ -23,35 +24,42 @@
 	padding: 0;
 }
 .header {
+	margin-top: 80px;
 	grid-area: 'header';
-	border: solid 2px #fda312;
 	text-decoration: none;
-	color: var(--blue);
+	color: var(--white);
 	font-size: 2rem;
 	font-weight: 500;
 }
 
 .header a {
 	text-decoration: none;
-	color: var(--blue);
-	/* border: solid 2px #fda312; */
+	color: var(--white);
 }
 
 .nav-bar {
-	margin: 5px;
-	padding: 5px;
-	border: solid 2px var(--blue);
+	border-radius: 10px;
+	position: sticky;
+	top: 20px;
+    display: flex;
+    margin: 10vw;
+		margin-bottom: 5vw;
+		margin-top: 5vw;
+    padding: 5px;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 /* Dropdown Button */
 .dropbtn {
+	border: none;
 	font-family: inherit;
 	min-width:;
-	background-color: var(--yellow);
+	background-color: var(--colourC);
 	color: white;
 	padding: 10px;
 	font-size: 1rem;
-	border: solid 2px black;
 	border-radius: 10px;
 }
 
@@ -69,14 +77,14 @@
 	border: none;
 	border-radius: 10px;
 	display: none;
-	background-color: var(--blue);
+	background-color: var(--colourB);
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 	z-index: 1;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-	background-color: var(--blue);
+	background-color: var(--colourB);
 	color: var(--white);
 	padding: 12px 16px;
 	text-decoration: none;
@@ -86,7 +94,7 @@
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-	background-color: var(--yellow);
+	background-color: var(--colourC);
 }
 
 /* Show the dropdown menu on hover */
@@ -96,12 +104,12 @@
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-	background-color: var(--yellow);
+	background-color: var(--colourC);
 }
 
-.article-list {
+.article-list{
 	grid-area: 'main';
-	border: solid 1px var(--blue);
+	border: solid 1px var(--colourB);
 	padding: 1rem;
 	margin: 1%;
 	margin-top: 80px;
@@ -115,20 +123,46 @@
 	gap: 2rem;
 }
 
+.comment-list{
+	grid-area: 'main';
+	border: solid 1px var(--colourB);
+	padding: 1rem;
+	margin: 1%;
+	margin-top: 80px;
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-wrap: wrap;
+	flex-direction: column;
+	gap: 2rem;
+}
+
 .card {
 	text-decoration: none;
 	background-color: var(--white);
-	color: var(--blue);
+	color: var(--colourB);
 	border-radius: 5%;
-	box-shadow: 0px 0px 25px 1px var(--yellow);
+	box-shadow: 0px 0px 25px 1px var(--colourC);
 	padding: 1rem;
-	min-width: 300px;
+	/* min-width: 300px; */
 	flex: 25%;
+}
+
+.comment-card {
+	border-radius: 10px;
+	background-color: var(--white);
+	margin: 2vw;
+	padding: 5vw;
+	text-align: justify;
+	text-decoration: none;
+	box-shadow: 0px 0px 25px 1px var(--colourC);
+	min-width: 300px;
 }
 
 .card a {
 	text-decoration: none;
-	color: var(--blue);
+	color: var(--colourB);
 }
 
 .card__subheading {
@@ -145,7 +179,7 @@
 }
 .card__additional-info {
 	width: fit-content;
-	color: var(--grey);
+	color: var(--colourD);
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -155,14 +189,16 @@
 }
 
 .article {
-	border: solid 2px var(--yellow);
+	border-radius: 10px;
+	background-color: var(--white);
 	margin: 5vw;
 	padding: 5vw;
+	text-align: justify;
 }
 
 .article a {
 	text-decoration: none;
-	color: var(--blue);
+	color: var(--colourB);
 }
 
 .article__subheading {
@@ -173,6 +209,7 @@
 }
 .article__additional-info-box {
 	padding: 0 5%;
+	margin-top: 10px;
 	display: grid;
 	grid-template-columns: 50% 50%;
 	gap: 1rem;
@@ -180,7 +217,7 @@
 
 .article__additional-info {
 	width: fit-content;
-	color: var(--grey);
+	color: var(--colourD);
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -191,7 +228,8 @@
 
 button.vote-for-article {
 	border: none;
-	background-color: #ffffff;
+	background-color: var(--white);
 	display: inline;
+	color: var(--colourb);
 }
 

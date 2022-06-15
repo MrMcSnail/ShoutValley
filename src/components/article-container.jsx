@@ -49,7 +49,7 @@ export default function ArticleContainer() {
 				</section>
 
 				<article className='article__body'>
-          {article.body}
+          {body}
         </article>
 
 				<section className='article__additional-info-box'>

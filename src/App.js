@@ -3,7 +3,7 @@ import Header from "./components/header";
 import NavBar from "./components/nav-bar";
 import ArticleListContainer from "./components/article-list-container";
 import { Routes, Route } from "react-router-dom";
-import ArticleContainer from "./components/article-container";
+import ArticlePage from "./components/article-page";
 
 function App() {
 	return (
@@ -14,7 +14,7 @@ function App() {
 				<Routes>
 					<Route path='/' element={<ArticleListContainer />} />
 					<Route path='/articles' element={<ArticleListContainer />} />
-					<Route path='/articles/:article_id' element={<ArticleContainer />} />
+					<Route path='/articles/:article_id' element={<ArticlePage />} />
 				</Routes>
 			</main>
 		</div>

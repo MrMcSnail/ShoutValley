@@ -23,6 +23,12 @@ export function fetchTopics() {
 	});
 }
 
+export function fetchComments(article_id) {
+	return shoutValleyApi.get(`/articles/${article_id}/comments`).then(({ data }) => {
+		return data.comments;
+	});
+}
+
 export function addVote(article_id) {
 	return shoutValleyApi.patch(`/articles/${article_id}`, {"inc_votes": 1});
 }
