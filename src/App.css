@@ -55,7 +55,6 @@
 .dropbtn {
 	border: none;
 	font-family: inherit;
-	min-width:;
 	background-color: var(--colourC);
 	color: white;
 	padding: 10px;
