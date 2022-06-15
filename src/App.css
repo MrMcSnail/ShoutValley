@@ -1,71 +1,110 @@
-.App {
-	text-align: center;
-	font-family: "Nunito", sans-serif;
+:root {
+	--black: #000000;
+	--blue: #14213e;
+	--yellow: #fda312;
+	--grey: #e6e6e6;
+	--white: #ffffff;
+	accent-color: var(--yellow);
 }
 
-a {
+.App {
+	display: grid;
+	grid-template-rows: 
+	'nav'
+	'header'
+	'main';
+	text-align: center;
+	font-family: "Nunito", sans-serif;
+	color: var(--blue);
+}
+
+.app__title {
+	margin: 0;
+	padding: 0;
+}
+.header {
+	grid-area: 'header';
+	border: solid 2px #fda312;
 	text-decoration: none;
-	color: black;
-	font-size: 1.5rem;
+	color: var(--blue);
+	font-size: 2rem;
 	font-weight: 500;
 }
 
+.header a {
+	text-decoration: none;
+	color: var(--blue);
+	/* border: solid 2px #fda312; */
+}
+
 .nav-bar {
-	width: 100vw;
-	margin: 5%;
-	padding: 5%;
-	display: block;
+	margin: 5px;
+	padding: 5px;
+	border: solid 2px var(--blue);
 }
 
 /* Dropdown Button */
 .dropbtn {
-	min-width: 160px;
-	position: relative;
-  background-color: rgb(196, 196, 255);
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
+	font-family: inherit;
+	min-width:;
+	background-color: var(--yellow);
+	color: white;
+	padding: 10px;
+	font-size: 1rem;
+	border: solid 2px black;
 	border-radius: 10px;
 }
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
-  position: relative;
-  display: inline-block;
-	align-self: center;
+	
 }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
+	font-family: inherit;
+	position: relative;
+	color: white;
+	font-size: 1rem;
+	border: none;
 	border-radius: 10px;
-  display: none;
-  position: absolute;
-  background-color: rgb(196, 196, 255);
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+	display: none;
+	background-color: var(--blue);
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  color: white;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+	background-color: var(--blue);
+	color: var(--white);
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	border-radius: 10px;
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {
+	background-color: var(--yellow);
+}
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+	display: block;
+}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: rgb(196, 196, 255);}
+.dropdown:hover .dropbtn {
+	background-color: var(--yellow);
+}
 
 .article-list {
+	grid-area: 'main';
+	border: solid 1px var(--blue);
 	padding: 1rem;
+	margin: 1%;
+	margin-top: 80px;
 	list-style: none;
 	display: flex;
 	direction: row;
@@ -76,35 +115,46 @@ a {
 	gap: 2rem;
 }
 
-.article-card {
+.card {
+	text-decoration: none;
+	background-color: var(--grey);
+	color: var(--blue);
 	border-radius: 5%;
-	box-shadow: 5px 10px 50px rgb(196, 196, 255);
+	box-shadow: 0px 0px 25px 1px var(--yellow);
 	padding: 1rem;
 	min-width: 300px;
-  flex: 25%;
+	flex: 25%;
 }
-.article-card__title {
+
+.card a {
+	text-decoration: none;
+	color: var(--blue);
 }
-.article-card__subheading {
-		padding: 0 5% ;
-    color: rgb(128, 128, 128);
+
+.card__subheading {
+	padding: 0 5%;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 }
-.article-card__additional-info-box {
+.card__additional-info-box {
 	padding: 0 5%;
 	display: grid;
 	grid-template-columns: 50% 50%;
 	gap: 1rem;
 }
-.article-card__additional-info {
+.card__additional-info {
 	width: fit-content;
-	color: gray;
+	color: var(--grey-colour);
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 	flex-wrap: nowrap;
 	align-content: center;
 	flex-direction: row;
+}
+
+.article {
+	margin: 20px;
+	padding: 10vw;
 }

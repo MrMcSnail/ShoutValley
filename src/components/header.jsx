@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
 	return (
-		<Link to='/'>
-			<h1>ShoutValley</h1>
-		</Link>
+		<header className='header'>
+			<Link to='/'>
+				<h1 className="app__title">ShoutValley</h1>
+			</Link>
+		</header>
 	);
 }
