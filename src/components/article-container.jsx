@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { NavLink, useParams, useSearchParams } from "react-router-dom";
 import { fetchArticle } from "../utils/api";
 import createTimestamp from "../utils/create-timestamp";
-import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import CommentIcon from "@mui/icons-material/Comment";
 import PersonIcon from "@mui/icons-material/Person";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import TopicIcon from "@mui/icons-material/Topic";
+import AddVotePip from "./vote-up-pip";
 
 export default function ArticleContainer() {
 	const [searchParams] = useSearchParams();
@@ -43,7 +43,7 @@ export default function ArticleContainer() {
 				
         <section className='article__subheading'>
 					<NavLink to={`/articles?topic=${topic}`} key={topic}>
-						<TopicIcon />
+					<TopicIcon />
 						{topic}
 					</NavLink>
 				</section>
@@ -61,10 +61,7 @@ export default function ArticleContainer() {
 						<AccessTimeIcon />
 						<p>{createTimestamp(dateData)}</p>
 					</div>
-					<div className='article-card__additional-info'>
-						<ThumbUpIcon />
-						<p>{votes}</p>
-					</div>
+					<AddVotePip article_id={article_id} votes={votes} />
 					<div className='article-card__additional-info'>
 						<CommentIcon /> <p>{comment_count}</p>
 					</div>
