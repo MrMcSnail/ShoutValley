@@ -12,31 +12,31 @@ const ArticleCard = ({ article }) => {
 
 	const dateData = new Date(created_at);
 	return (
-		<li key={article_id} className='article-card'>
-			<NavLink className='card-link title' to={`/articles/${article_id}`}>
-				{title}
+		<li key={article_id} className='card'>
+			<NavLink className='card__link' to={`/articles/${article_id}`}>
+				<section className='card__subheading'>
+					<p>{topic}</p>
+					<TopicIcon />
+				</section>
+				<h2 className="card__title">{title}</h2>
+				<section className='card__additional-info-box'>
+					<div className='card__additional-info'>
+						<PersonIcon />
+						<p>{author}</p>
+					</div>
+					<div className='card__additional-info'>
+						<AccessTimeIcon />
+						<p>{createTimestamp(dateData)}</p>
+					</div>
+					<div className='card__additional-info'>
+						<ThumbUpIcon />
+						<p>{votes}</p>
+					</div>
+					<div className='card__additional-info'>
+						<CommentIcon /> <p>{comment_count}</p>
+					</div>
+				</section>
 			</NavLink>
-			<section className='article-card__subheading'>
-				<TopicIcon />
-				<p>{topic}</p>
-			</section>
-			<section className='article-card__additional-info-box'>
-				<div className='article-card__additional-info'>
-					<PersonIcon />
-					<p>{author}</p>
-				</div>
-				<div className='article-card__additional-info'>
-					<AccessTimeIcon />
-					<p>{createTimestamp(dateData)}</p>
-				</div>
-				<div className='article-card__additional-info'>
-					<ThumbUpIcon />
-					<p>{votes}</p>
-				</div>
-				<div className='article-card__additional-info'>
-					<CommentIcon /> <p>{comment_count}</p>
-				</div>
-			</section>
 		</li>
 	);
 };

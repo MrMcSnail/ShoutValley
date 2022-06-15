@@ -17,13 +17,13 @@ export default function TopiclListContainer() {
 				setIsLoading(false);
 			})
 			.catch((err) => {
-				setError({ err: `Somethings gone wrong.` });
+				setError({ err: `Something's gone wrong.` });
 			});
 	}, []);
 
 	const topicsList = topics.map((topic) => {
 		return (
-			<NavLink to={`/articles?topic=${topic.slug}`} key={topic.slug}>
+			<NavLink className='dropdown-inner-content' to={`/articles?topic=${topic.slug}`} key={topic.slug}>
 				{topic.slug}
 			</NavLink>
 		);
