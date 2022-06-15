@@ -46,18 +46,12 @@
 /* Dropdown Button */
 .dropbtn {
 	font-family: inherit;
-	min-width:;
 	background-color: var(--yellow);
 	color: white;
 	padding: 10px;
 	font-size: 1rem;
 	border: solid 2px black;
 	border-radius: 10px;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-	
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -189,9 +183,15 @@
 	flex-direction: row;
 }
 
-button.vote-for-article {
+button.vote {
 	border: none;
 	background-color: #ffffff;
 	display: inline;
 }
 
+button.vote :disabled{
+	border: none;
+	background-color: #ffffff;
+	display: inline;
+	color: var(--yellow);
+}

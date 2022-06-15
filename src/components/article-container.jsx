@@ -6,7 +6,7 @@ import CommentIcon from "@mui/icons-material/Comment";
 import PersonIcon from "@mui/icons-material/Person";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import TopicIcon from "@mui/icons-material/Topic";
-import AddVotePip from "./vote-up-pip";
+import AddVotePip from "./vote-pip";
 
 export default function ArticleContainer() {
 	const [searchParams] = useSearchParams();
@@ -38,20 +38,16 @@ export default function ArticleContainer() {
 		return isLoading ? (
 			<h2 className='loading-tag'>Loading</h2>
 		) : (
-			<div className="article">
+			<div className='article'>
 				<h2 className='article__title'>{title}</h2>
-				
-        <section className='article__subheading'>
+
+				<section className='article__subheading'>
 					<NavLink to={`/articles?topic=${topic}`} key={topic}>
-					<TopicIcon />
+						<TopicIcon />
 						{topic}
 					</NavLink>
 				</section>
-
-				<article className='article__body'>
-          {article.body}
-        </article>
-
+				<article className='article__body'>{body}</article>
 				<section className='article__additional-info-box'>
 					<div className='article-card__additional-info'>
 						<PersonIcon />
