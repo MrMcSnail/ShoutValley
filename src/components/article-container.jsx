@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { NavLink, useParams, useSearchParams } from "react-router-dom";
 import { fetchArticle } from "../utils/api";
 import createTimestamp from "../utils/create-timestamp";
-import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import CommentIcon from "@mui/icons-material/Comment";
 import PersonIcon from "@mui/icons-material/Person";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import TopicIcon from "@mui/icons-material/Topic";
+import AddVotePip from "./vote-pip";
 
 export default function ArticleContainer() {
 	const [searchParams] = useSearchParams();
@@ -38,20 +38,16 @@ export default function ArticleContainer() {
 		return isLoading ? (
 			<h2 className='loading-tag'>Loading</h2>
 		) : (
-			<div className="article">
+			<div className='article'>
 				<h2 className='article__title'>{title}</h2>
-				
-        <section className='article__subheading'>
+
+				<section className='article__subheading'>
 					<NavLink to={`/articles?topic=${topic}`} key={topic}>
 						<TopicIcon />
 						{topic}
 					</NavLink>
 				</section>
-
-				<article className='article__body'>
-          {article.body}
-        </article>
-
+				<article className='article__body'>{body}</article>
 				<section className='article__additional-info-box'>
 					<div className='article-card__additional-info'>
 						<PersonIcon />
@@ -61,10 +57,7 @@ export default function ArticleContainer() {
 						<AccessTimeIcon />
 						<p>{createTimestamp(dateData)}</p>
 					</div>
-					<div className='article-card__additional-info'>
-						<ThumbUpIcon />
-						<p>{votes}</p>
-					</div>
+					<AddVotePip article_id={article_id} votes={votes} />
 					<div className='article-card__additional-info'>
 						<CommentIcon /> <p>{comment_count}</p>
 					</div>
