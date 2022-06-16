@@ -9,8 +9,8 @@ import createTimestamp from "../utils/create-timestamp";
 import PersonIcon from "@mui/icons-material/Person";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import TopicIcon from "@mui/icons-material/Topic";
-import AddVotePip from "./vote-up-pip";
 import CommentRequestPip from "./comment-request-pip";
+import AddVotePip from "./vote-pip";
 
 export default function ArticleContainer() {
 	const [searchParams] = useSearchParams();
@@ -53,6 +53,7 @@ export default function ArticleContainer() {
 				</section>
 
 				<article className='article__body'>{body}</article>
+
 
 				<section className='article__additional-info-box'>
 					<div className='article-card__additional-info'>
