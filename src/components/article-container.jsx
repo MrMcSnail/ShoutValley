@@ -47,7 +47,12 @@ export default function ArticleContainer() {
 						{topic}
 					</NavLink>
 				</section>
-				<article className='article__body'>{body}</article>
+
+				<article className='article__body'>
+          {body}
+        </article>
+
+
 				<section className='article__additional-info-box'>
 					<div className='article-card__additional-info'>
 						<PersonIcon />
