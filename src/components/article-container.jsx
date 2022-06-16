@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink, useParams, useSearchParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { fetchArticle } from "../utils/api";
 import createTimestamp from "../utils/create-timestamp";
 import CommentIcon from "@mui/icons-material/Comment";
@@ -8,7 +8,9 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import TopicIcon from "@mui/icons-material/Topic";
 import AddVotePip from "./vote-up-pip";
 
+
 export default function ArticleContainer() {
+	const navigate = useNavigate()
 	const [searchParams] = useSearchParams();
 	const [article, setArticle] = useState({});
 	const [isLoading, setIsLoading] = useState(true);
@@ -63,7 +65,9 @@ export default function ArticleContainer() {
 					</div>
 					<AddVotePip article_id={article_id} votes={votes} />
 					<div className='article-card__additional-info'>
-						<CommentIcon /> <p>{comment_count}</p>
+						<button aria-label="comment" onClick={()=>{navigate(`/articles/${article_id}/make_a_comment`)}}>
+							<CommentIcon /> <p>{comment_count}</p>
+						</button>
 					</div>
 				</section>
 			</div>
