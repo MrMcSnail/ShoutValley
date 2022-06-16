@@ -232,3 +232,10 @@ button.vote-for-article {
 	color: var(--colourb);
 }
 
+button.comment {
+	border: none;
+	background-color: var(--white);
+	display: inline;
+	color: var(--colourb);
+}
+

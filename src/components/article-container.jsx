@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
-import { NavLink, useNavigate, useParams, useSearchParams } from "react-router-dom";
+import {
+	NavLink,
+	useParams,
+	useSearchParams,
+} from "react-router-dom";
 import { fetchArticle } from "../utils/api";
 import createTimestamp from "../utils/create-timestamp";
-import CommentIcon from "@mui/icons-material/Comment";
 import PersonIcon from "@mui/icons-material/Person";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import TopicIcon from "@mui/icons-material/Topic";
 import AddVotePip from "./vote-up-pip";
-
+import CommentRequestPip from "./comment-request-pip";
 
 export default function ArticleContainer() {
-	const navigate = useNavigate()
 	const [searchParams] = useSearchParams();
 	const [article, setArticle] = useState({});
 	const [isLoading, setIsLoading] = useState(true);
@@ -40,19 +42,17 @@ export default function ArticleContainer() {
 		return isLoading ? (
 			<h2 className='loading-tag'>Loading</h2>
 		) : (
-			<div className="article">
+			<div className='article'>
 				<h2 className='article__title'>{title}</h2>
-				
-        <section className='article__subheading'>
+
+				<section className='article__subheading'>
 					<NavLink to={`/articles?topic=${topic}`} key={topic}>
-					<TopicIcon />
+						<TopicIcon />
 						{topic}
 					</NavLink>
 				</section>
 
-				<article className='article__body'>
-          {body}
-        </article>
+				<article className='article__body'>{body}</article>
 
 				<section className='article__additional-info-box'>
 					<div className='article-card__additional-info'>
@@ -64,11 +64,10 @@ export default function ArticleContainer() {
 						<p>{createTimestamp(dateData)}</p>
 					</div>
 					<AddVotePip article_id={article_id} votes={votes} />
-					<div className='article-card__additional-info'>
-						<button aria-label="comment" onClick={()=>{navigate(`/articles/${article_id}/make_a_comment`)}}>
-							<CommentIcon /> <p>{comment_count}</p>
-						</button>
-					</div>
+					<CommentRequestPip
+						article_id={article_id}
+						comment_count={comment_count}
+					/>
 				</section>
 			</div>
 		);

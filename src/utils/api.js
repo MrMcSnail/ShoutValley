@@ -34,5 +34,6 @@ export function addVote(article_id) {
 }
 
 export function postComment(article_id, body, username) {
-	return shoutValleyApi.post(`/articles/${article_id}/comments`, {username, body});
+	console.table({article_id, body, username});
+	return shoutValleyApi.post(`/articles/${article_id}/comments`, {username, body}).catch((e)=>{console.log(e.response.data.msg)});
 }

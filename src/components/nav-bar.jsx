@@ -5,7 +5,6 @@ import TopiclListContainer from "./topic-list-container";
 
 export default function NavBar() {
 	const { user } = useContext(UserContext);
-	console.log('user: ', user);
 
 	return (
 		<nav className='nav-bar'>
@@ -16,7 +15,7 @@ export default function NavBar() {
 				</div>
 			</div>
 			<div className='user-welcome'>
-				<h2>Welcome {user.name}</h2>
+				<h2>Welcome, {user.name}</h2>
 			</div>
 			<div className='dropdown'>
 				<button className='dropbtn'>Menu</button>

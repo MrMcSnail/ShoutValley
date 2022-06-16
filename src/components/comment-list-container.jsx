@@ -7,14 +7,11 @@ export default function CommentListContainer() {
 	const [comments, setComments] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState(null);
-	const {article_id} = useParams()
-  console.log('article_id: ', article_id);
-
+	const { article_id } = useParams();
 	useEffect(() => {
 		setIsLoading(true);
-			fetchComments(article_id)
+		fetchComments(article_id)
 			.then((returnedComments) => {
-      
 				setComments(returnedComments);
 			})
 			.then(() => {
@@ -23,11 +20,14 @@ export default function CommentListContainer() {
 			.catch((err) => {
 				setError({ err: `Somethings gone wrong.` });
 			});
-		}, [article_id]);
+	}, [article_id]);
 
-	const commentList = comments.map((comment) => {
-		return <CommentContainer key={comment.comment_id} comment={comment} />;
-	});
+	const commentList = comments
+		.slice(0)
+		.reverse()
+		.map((comment) => {
+			return <CommentContainer key={comment.comment_id} comment={comment} />;
+		});
 
 	if (error) {
 		return <h2>{error.err}</h2>;
