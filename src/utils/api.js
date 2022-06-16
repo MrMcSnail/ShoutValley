@@ -33,6 +33,6 @@ export function addVote(article_id) {
 	return shoutValleyApi.patch(`/articles/${article_id}`, {"inc_votes": 1});
 }
 
-export function postComment(params) {
-	
+export function postComment(article_id, body, username) {
+	return shoutValleyApi.post(`/articles/${article_id}/comments`, {username, body});
 }

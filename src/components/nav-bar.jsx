@@ -4,6 +4,9 @@ import { UserContext } from "../contexts/User";
 import TopiclListContainer from "./topic-list-container";
 
 export default function NavBar() {
+	const { user } = useContext(UserContext);
+	console.log('user: ', user);
+
 	return (
 		<nav className='nav-bar'>
 			<div className='dropdown'>
@@ -11,11 +14,9 @@ export default function NavBar() {
 				<div className='dropdown-content'>
 					<TopiclListContainer />
 				</div>
-			{/* user welcome
-			disable buttns for guest
-			disable comments and votes on own articles
-			disable abilty to delete others comments
-			*/}
+			</div>
+			<div className='user-welcome'>
+				<h2>Welcome {user.name}</h2>
 			</div>
 			<div className='dropdown'>
 				<button className='dropbtn'>Menu</button>
@@ -27,3 +28,9 @@ export default function NavBar() {
 		</nav>
 	);
 }
+
+/* user welcome
+			disable buttns for guest
+			disable comments and votes on own articles
+			disable abilty to delete others comments
+			*/

@@ -13,9 +13,9 @@ function App() {
 		username: "default_user",
 		name: "Guest",
 		avatar_url:
-			"https://www.healthytherapies.com/wp-content/uploads/2016/06/Lime3.jpg",
+			"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0",
 	};
-	const [user, setUser] = useState({})
+	const [user, setUser] = useState(defaultUser)
 	return (
 		<UserContext.Provider value={{user, setUser}}>
 		<div className='App'>

@@ -1,5 +1,8 @@
-// useContext = You'll need to create one first.
+import {useContext} from 'react'
+import { UserContext } from '../contexts/User';
 
-export default function NewCommentForm(article__title) {
-	return <form className='new-comment__form'>this is a form</form>;
+export default function NewCommentForm() {
+	return (<form className='new-comment__form'>
+		<input type='text'>your comment here</input>
+	</form>);
 }
