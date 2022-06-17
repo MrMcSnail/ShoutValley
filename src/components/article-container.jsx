@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { NavLink, useParams, useSearchParams } from "react-router-dom";
 import { fetchArticle } from "../utils/api";
 import createTimestamp from "../utils/create-timestamp";
-import CommentIcon from "@mui/icons-material/Comment";
 import PersonIcon from "@mui/icons-material/Person";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import TopicIcon from "@mui/icons-material/Topic";
+import CommentIcon from "@mui/icons-material/Comment";
 import AddVotePip from "./vote-pip";
 
 export default function ArticleContainer() {
@@ -48,23 +48,20 @@ export default function ArticleContainer() {
 					</NavLink>
 				</section>
 
-				<article className='article__body'>
-          {body}
-        </article>
-
+				<article className='article__body'>{body}</article>
 
 				<section className='article__additional-info-box'>
-					<div className='article-card__additional-info'>
+					<div className='article__additional-info'>
 						<PersonIcon />
 						<p>{author}</p>
 					</div>
-					<div className='article-card__additional-info'>
+					<div className='article__additional-info'>
 						<AccessTimeIcon />
 						<p>{createTimestamp(dateData)}</p>
 					</div>
-					<AddVotePip article_id={article_id} votes={votes} />
-					<div className='article-card__additional-info'>
-						<CommentIcon /> <p>{comment_count}</p>
+						<AddVotePip article_id={article_id} votes={votes} />
+					<div className='article__additional-info'>
+					<CommentIcon /> <p>{comment_count}</p>
 					</div>
 				</section>
 			</div>

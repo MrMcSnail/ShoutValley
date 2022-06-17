@@ -4,15 +4,14 @@ import { fetchArticles } from "../utils/api";
 import { useSearchParams, useParams } from "react-router-dom";
 
 export default function ArticleListContainer() {
-	const [articles, setArticles] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState(null);
-	const [searchParams] = useSearchParams()
-
+	const [searchParams] = useSearchParams();
+	const [articles, setArticles] = useState([]);
 
 	useEffect(() => {
 		setIsLoading(true);
-			fetchArticles(searchParams)
+		fetchArticles(searchParams)
 			.then((returnedArticles) => {
 				setArticles(returnedArticles);
 			})
@@ -22,11 +21,11 @@ export default function ArticleListContainer() {
 			.catch((err) => {
 				setError({ err: `Somethings gone wrong.` });
 			});
-		}, [searchParams]);
+	}, [searchParams]);
 
 	const articleList = articles.map((article) => {
-		return <ArticleCard key={article.article_id} article={article} />;
-	});
+			return <ArticleCard key={article.article_id} article={article} />;
+		});
 
 	if (error) {
 		return <h2>{error.err}</h2>;
