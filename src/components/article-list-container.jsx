@@ -4,10 +4,10 @@ import { fetchArticles } from "../utils/api";
 import { useSearchParams, useParams } from "react-router-dom";
 
 export default function ArticleListContainer() {
-	const [articles, setArticles] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState(null);
 	const [searchParams] = useSearchParams();
+	const [articles, setArticles] = useState([]);
 
 	useEffect(() => {
 		setIsLoading(true);
@@ -23,10 +23,7 @@ export default function ArticleListContainer() {
 			});
 	}, [searchParams]);
 
-	const articleList = articles
-		.slice(0)
-		.reverse()
-		.map((article) => {
+	const articleList = articles.map((article) => {
 			return <ArticleCard key={article.article_id} article={article} />;
 		});
 

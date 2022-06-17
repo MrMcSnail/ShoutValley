@@ -49,6 +49,17 @@
     flex-wrap: nowrap;
     flex-direction: row;
     justify-content: space-around;
+		align-items: center;
+}
+
+.user-welcome h2 {
+	border: none;
+	font-family: inherit;
+	background-color: var(--colourC);
+	color: white;
+	padding: 10px;
+	font-size: 1.5rem;
+	border-radius: 10px;
 }
 
 /* Dropdown Button */
@@ -227,7 +238,7 @@ button.vote {
 	color: var(--colourb);
 }
 
-<<<<<<< HEAD
+
 button.comment {
 	border: none;
 	background-color: var(--white);
@@ -235,11 +246,31 @@ button.comment {
 	color: var(--colourb);
 }
 
-=======
-button.vote :disabled{
+button :disabled .vote-for-article{
 	border: none;
-	background-color: #ffffff;
+	background-color: var(--white);
 	display: inline;
-	color: var(--yellow);
+	color: var(--colourC);
 }
->>>>>>> 3d67aaa6016550a2b5d562c37030c771e483c9da
+
+.new-comment__form {
+	border-radius: 10px;
+	background-color: var(--white);
+	margin: 5vw;
+	padding: 5vw;
+	text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+#submit-btn { 	
+	border: none;
+	font-family: inherit;
+	background-color: var(--colourC);
+	color: white;
+	padding: 5px;
+	font-size: 1.5rem;
+	border-radius: 10px;
+max-width: fit-content;}
