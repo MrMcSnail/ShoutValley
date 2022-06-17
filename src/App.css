@@ -1,18 +1,13 @@
 :root {
-	--colourA: #48233C;
+	--colourA: #344823;
 	--colourB: #40376e;
-	--colourC: #36558F89;
-	--colourD: #96ACB7;
+	--colourC: #b59701b8;
+	--colourD: #96acb7;
 	--white: #ffffff;
 	accent-color: var(--colourC);
 }
 
 .App {
-	display: grid;
-	grid-template-rows: 
-	'nav'
-	'header'
-	'main';
 	text-align: center;
 	font-family: "Nunito", sans-serif;
 	color: var(--colourB);
@@ -25,7 +20,7 @@
 }
 .header {
 	margin-top: 80px;
-	grid-area: 'header';
+	grid-area: "header";
 	text-decoration: none;
 	color: var(--white);
 	font-size: 2rem;
@@ -41,17 +36,21 @@
 	border-radius: 10px;
 	position: sticky;
 	top: 20px;
-    display: flex;
-    margin: 10vw;
-		margin-bottom: 5vw;
-		margin-top: 5vw;
-    padding: 5px;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: space-around;
-		align-items: center;
+	display: grid;
+	grid-template-rows: 10vh 10vh;
+	grid-template-columns: 50vw 50vw;
+	margin: 10vw;
+	margin-bottom: 5vw;
+	margin-top: 5vw;
+	padding: 5px;
+	row-gap: 10px;
+	align-content: stretch;
+	justify-content: space-evenly;
+	justify-items: stretch;
 }
-
+.user-welcome {
+	grid-area: 1 / 1 / 2 / 3;
+}
 .user-welcome h2 {
 	border: none;
 	font-family: inherit;
@@ -61,7 +60,17 @@
 	font-size: 1.5rem;
 	border-radius: 10px;
 }
+#topics {
+	grid-area: 2 / 2 / 3 / 3;
+}
 
+#menu {
+	grid-area: 2 / 1 / 3 / 2;
+}
+
+/* .dropdown{
+	
+} */
 /* Dropdown Button */
 .dropbtn {
 	border: none;
@@ -112,12 +121,11 @@
 	background-color: var(--colourC);
 }
 
-.article-list{
-	grid-area: 'main';
+.article-list {
+	grid-area: "main";
 	border: solid 1px var(--colourB);
 	padding: 1rem;
 	margin: 1%;
-	margin-top: 80px;
 	list-style: none;
 	display: flex;
 	direction: row;
@@ -128,8 +136,8 @@
 	gap: 2rem;
 }
 
-.comment-list{
-	grid-area: 'main';
+.comment-list {
+	grid-area: "main";
 	border: solid 1px var(--colourB);
 	padding: 1rem;
 	margin: 1%;
@@ -221,51 +229,57 @@
 }
 
 .article__additional-info {
-	width: fit-content;
-	color: var(--colourD);
+	width: 100%;
+	color: var(--colourB);
 	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	flex-wrap: nowrap;
-	align-content: center;
+	flex-wrap: wrap;
 	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+	align-content: center;
 }
 
 button.vote {
 	border: none;
 	background-color: var(--white);
 	display: inline;
-	color: var(--colourb);
+	color: var(--colourD);
 }
 
-
-button.comment {
-	border: none;
-	background-color: var(--white);
-	display: inline;
-	color: var(--colourb);
-}
-
-button :disabled .vote-for-article{
+button.vote:hover {
 	border: none;
 	background-color: var(--white);
 	display: inline;
 	color: var(--colourC);
 }
 
+.vote:disabled {
+	border: none;
+	display: inline;
+	color: var(--colour);
+}
+
 .new-comment__form {
+	font-family: inherit;
 	border-radius: 10px;
 	background-color: var(--white);
 	margin: 5vw;
 	padding: 5vw;
-	text-align: right;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 2rem;
+	gap: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	padding: 2rem;
 }
 
-#submit-btn { 	
+#comment-body {
+	width: 75vw;
+	font-family: inherit;
+	font-size: 1rem;
+}
+
+#submit-btn {
 	border: none;
 	font-family: inherit;
 	background-color: var(--colourC);
@@ -273,4 +287,5 @@ button :disabled .vote-for-article{
 	padding: 5px;
 	font-size: 1.5rem;
 	border-radius: 10px;
-max-width: fit-content;}
+	max-width: fit-content;
+}

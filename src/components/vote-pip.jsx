@@ -18,26 +18,26 @@ export default function AddVotePip({ votes, article_id }) {
 				);
 			});
 		} else {
-			setErr(`You can only add or take away one vote for the article.`);
+			setErr(true);
+			alert(`You get one chance to vote for the article. \n Vote wisely...`);
 		}
 	}
 
 	return err ? (
-		<div className='article-card__additional-info'>
-			<button className='vote-for-article' disabled={true}>
+		<div className='article__additional-info'>
+			<button className='vote' disabled={true}>
 				<ThumbUpIcon />
 			</button>
 			<p>{votes + voteChange}</p>
 
-			<button className='vote-down-article' disabled={true}>
+			<button className='vote' disabled={true}>
 				<ThumbDown />
 			</button>
-			<p>{err}</p>
 		</div>
 	) : (
-		<div className='article-card__additional-info'>
+		<div className='article__additional-info'>
 			<button
-				className='vote vote-for-article'
+				className='vote'
 				onClick={() => {
 					handleVote(1);
 				}}
@@ -46,7 +46,7 @@ export default function AddVotePip({ votes, article_id }) {
 			</button>
 			<p>{votes + voteChange}</p>
 			<button
-				className='vote vote-down-article'
+				className='vote'
 				onClick={() => {
 					handleVote(-1);
 				}}
