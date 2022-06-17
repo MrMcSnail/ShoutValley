@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../contexts/User";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { postComment } from "../utils/api";
 import validateForm from "../utils/validate-form";
 

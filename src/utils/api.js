@@ -3,10 +3,13 @@ import axios from 'axios';
 const shoutValleyApi = axios.create({
 	baseURL: "https://shoutvalley.herokuapp.com/api",
 });
-
+// Order must be 'ASC' or 'DESC'.
 export function fetchArticles(params) {
+	console.log('params: ', [...params.keys()]);
 	const topic = params.get('topic')
-	return shoutValleyApi.get(`/articles`, {params: {topic}}).then(({ data }) => {
+	const sort_by = params.get('sort_by')
+	const order = params.get('order')
+	return shoutValleyApi.get(`/articles`, {params: {topic, sort_by, order }}).then(({ data }) => {
 		return data.articles;
 	});
 }
