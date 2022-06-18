@@ -29,7 +29,7 @@ export default function AddVotePip({ votes, article_id }) {
 		<div className='article__additional-info'>
 			<button
 				className='vote'
-				disabled={err}
+				disabled={err || !auth}
 				onClick={() => {
 					handleVote(1);
 				}}
@@ -40,7 +40,7 @@ export default function AddVotePip({ votes, article_id }) {
 
 			<button
 				className='vote'
-				disabled={err}
+				disabled={err || !auth}
 				onClick={() => {
 					handleVote(-1);
 				}}

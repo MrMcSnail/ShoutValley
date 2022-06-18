@@ -8,10 +8,6 @@ export default function NavBar() {
 
 	return (
 		<nav className='nav-bar'>
-			<div className='user-welcome'>
-				<h2>Welcome, {user.name}</h2>
-			</div>
-			<br />
 			<div id='topics' className='dropdown'>
 				<button className='dropbtn'>Topics</button>
 				<div className='dropdown-content'>

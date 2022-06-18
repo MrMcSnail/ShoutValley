@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import ArticlePage from "./components/article-page";
 import { UserContext } from "./contexts/User";
 import { useState } from "react";
+import PageNotFound from "./components/page-not-found";
 
 function App() {
 	const defaultUser = {
@@ -31,6 +32,7 @@ function App() {
 					<Route path='/' element={<ArticleListContainer />} />
 					<Route path='/articles' element={<ArticleListContainer />} />
 					<Route path='/articles/:article_id' element={<ArticlePage />} />
+					<Route path='*'element={<PageNotFound/>} />
 				</Routes>
 			</main>
 		</div>

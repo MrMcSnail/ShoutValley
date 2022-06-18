@@ -35,10 +35,10 @@ export default function ArticleListContainer() {
 		return isLoading ? (
 			<h2 className='loading-tag'>Loading</h2>
 		) : (
-			<>
+			<section className="article-list-container">
 				<ListOptions topic={searchParams.get("topic")} />
 				<ul className='article-list'>{articleList}</ul>
-			</>
+			</section>
 		);
 	}
 }
