@@ -28,7 +28,13 @@ export default function CommentListContainer() {
 		.slice(0)
 		.reverse()
 		.map((comment) => {
-			return <CommentContainer key={comment.comment_id} comment={comment} />;
+			return (
+				<CommentContainer
+					key={comment.comment_id}
+					comment={comment}
+					setComments={setComments}
+				/>
+			);
 		});
 
 	if (error) {

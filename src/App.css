@@ -1,10 +1,14 @@
 :root {
-	--colourA: #344823;
-	--colourB: #40376e;
-	--colourC: #b59701b8;
-	--colourD: #96acb7;
-	--white: #ffffff;
+	--colourA: #2b100e;
+	--colourB: #495867;
+	--colourC: #577399;
+	--colourD: #BDD5EA;
+	--white: #F7F7FF;
 	accent-color: var(--colourC);
+}
+
+html {
+	background-color: var(--colourA);
 }
 
 .App {
@@ -91,7 +95,7 @@
 	border: none;
 	border-radius: 10px;
 	display: none;
-	background-color: var(--colourB);
+	background-color: var(--colourC);
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 	z-index: 1;
 }
@@ -120,13 +124,12 @@
 .dropdown:hover .dropbtn {
 	background-color: var(--colourC);
 }
-div#list-opitions.dropdown{
+div#list-opitions.dropdown {
 	position: relative;
 	top: 20px;
 }
 .article-list {
 	grid-area: "main";
-	border: solid 1px var(--colourB);
 	padding: 1rem;
 	margin: 1%;
 	list-style: none;
@@ -141,7 +144,6 @@ div#list-opitions.dropdown{
 
 .comment-list {
 	grid-area: "main";
-	border: solid 1px var(--colourB);
 	padding: 1rem;
 	margin: 1%;
 	margin-top: 80px;
@@ -159,7 +161,7 @@ div#list-opitions.dropdown{
 	background-color: var(--white);
 	color: var(--colourB);
 	border-radius: 5%;
-	box-shadow: 0px 0px 25px 1px var(--colourC);
+	box-shadow: 0px 7px 25px 10px var(--colourC);
 	padding: 1rem;
 	min-width: 300px;
 	flex: 25%;
@@ -176,6 +178,10 @@ div#list-opitions.dropdown{
 	min-width: 300px;
 }
 
+#cmt-del:disabled{
+	border: solid 1px orangered;
+	opacity: 0.8;
+}
 .card a {
 	text-decoration: none;
 	color: var(--colourB);
@@ -205,6 +211,7 @@ div#list-opitions.dropdown{
 }
 
 .article {
+	box-shadow: 0px 7px 25px 10px var(--colourC);
 	border-radius: 10px;
 	background-color: var(--white);
 	margin: 5vw;
@@ -232,6 +239,9 @@ div#list-opitions.dropdown{
 }
 
 .article__additional-info {
+	border: solid var(--colourB);
+	opacity: 50%;
+	border-radius: 5px;
 	width: 100%;
 	color: var(--colourB);
 	display: flex;
@@ -246,20 +256,20 @@ button.vote {
 	border: none;
 	background-color: var(--white);
 	display: inline;
-	color: var(--colourD);
+	color: var(--colourB);
 }
 
 button.vote:hover {
 	border: none;
 	background-color: var(--white);
 	display: inline;
-	color: var(--colourC);
+	color: var(--colourD);
 }
 
 .vote:disabled {
 	border: none;
 	display: inline;
-	color: var(--colour);
+	color: var(--colourD);
 }
 
 .new-comment__form {
@@ -280,6 +290,10 @@ button.vote:hover {
 	width: 75vw;
 	font-family: inherit;
 	font-size: 1rem;
+}
+
+#cmt-del {
+	float: right;
 }
 
 #submit-btn {

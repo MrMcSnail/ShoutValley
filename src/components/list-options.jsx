@@ -27,7 +27,7 @@ export default function ListOptions({ topic }) {
 				<button className='dropbtn' onClick={handleNavClick}>
 					{orderToggle.icon}
 				</button>
-				<NavLink
+<NavLink				
 					id='Alpha'
 					className='dropdown-inner-content'
 					to={

@@ -5,7 +5,6 @@ const shoutValleyApi = axios.create({
 });
 // Order must be 'ASC' or 'DESC'.
 export function fetchArticles(params) {
-	console.log('params: ', [...params.keys()]);
 	const topic = params.get('topic')
 	const sort_by = params.get('sort_by')
 	const order = params.get('order')
@@ -31,6 +30,12 @@ export function fetchComments(article_id) {
 		return data.comments;
 	});
 }
+
+export const deleteComment = (comment_id) => {
+	return shoutValleyApi.delete(`/comments/${comment_id}`).catch((e) => {
+		console.log(e.response.data.msg);
+	});
+};
 
 export function postComment(article_id, body, username) {
 	return shoutValleyApi.post(`/articles/${article_id}/comments`, {username, body}).catch((e)=>{console.log(e.response.data.msg)});

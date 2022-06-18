@@ -10,7 +10,7 @@ import { useState } from "react";
 function App() {
 	const defaultUser = {
 		username: "default_user",
-		name: "Guests",
+		name: "Guest",
 		avatar_url:
 			"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0",
 	};
@@ -19,9 +19,10 @@ function App() {
 			"name": "Tom Tickle",
 			"avatar_url": "https://vignette.wikia.nocookie.net/mrmen/images/d/d6/Mr-Tickle-9a.png/revision/latest?cb=20180127221953"
 		}
-	const [user, setUser] = useState(testUser)
+	const [user, setUser] = useState(defaultUser)
+	const auth = user.name === 'Guest'? false : true
 	return (
-		<UserContext.Provider value={{user, setUser}}>
+		<UserContext.Provider value={{auth, user, setUser}}>
 		<div className='App'>
 			<Header />
 			<NavBar />

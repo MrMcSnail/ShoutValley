@@ -6,7 +6,7 @@ import validateForm from "../utils/validate-form";
 
 export default function NewCommentForm({comments,setComments}) {
 	const { article_id } = useParams();
-	const { user } = useContext(UserContext);
+	const { auth, user } = useContext(UserContext);
 	const [body, setBody] = useState("");
 	const [err, setErr] = useState(null);
 
@@ -32,13 +32,12 @@ export default function NewCommentForm({comments,setComments}) {
 					})
 					.catch((err) => {
 						setErr(true);
+						alert(`Oops! we couldn't add your comment. Refresh the page and try again.`)
 					})
 			: alert("Please write a comment before submitting your post.");
 	}
 
-	return err ? (
-		<p>Oops! we couldn't add your comment. Refresh the page and try again.</p>
-	) : (
+	return auth? (
 		<form className='new-comment__form' onSubmit={handleCommentSubmission}>
 			<label>Add to the conversation...</label>
 			<textarea
@@ -48,6 +47,8 @@ export default function NewCommentForm({comments,setComments}) {
 				onChange={handleChange}
 			/>
 			<input id='submit-btn' type='submit' value='Post Comment' />
-		</form>
-	);
+		</form> 
+	) : (<div className='new-comment__form'>
+		<h2>Login to make comments.</h2>
+	</div>);
 }
