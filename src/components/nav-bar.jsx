@@ -1,11 +1,11 @@
-import { NavLink } from "react-router-dom";
-import { useContext } from "react";
-import { UserContext } from "../contexts/User";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import TopiclListContainer from "./topic-list-container";
+import ListOptions from "./list-options";
 
 export default function NavBar() {
-	const { user } = useContext(UserContext);
-
+	const nav = useNavigate();
+	const location = useLocation();
+	console.log("location.pathname: ");
 	return (
 		<nav className='nav-bar'>
 			<div id='topics' className='dropdown'>
@@ -14,19 +14,27 @@ export default function NavBar() {
 					<TopiclListContainer />
 				</div>
 			</div>
-			<div id='menu' className='dropdown'>
-				<button className='dropbtn'>Menu</button>
-				<div className='dropdown-content'>
-					<NavLink to='/'>Home</NavLink>
-					<NavLink to='/users'>Log In</NavLink>
-				</div>
+			<div id='Browse' className='dropdown'>
+				<button
+					className='dropbtn'
+					onClick={() => {
+						nav("/articles");
+					}}
+				>
+					Browse
+				</button>
 			</div>
+			<div id='Browse' className='dropdown'>
+				<button
+				className='dropbtn'
+				onClick={() => {
+					nav("/users");
+				}}
+				>
+				Users
+			</button>
+			</div>
+			{location.pathname === "/articles" ? <ListOptions /> : <></>}
 		</nav>
 	);
 }
-
-/* user welcome
-			disable buttns for guest
-			disable comments and votes on own articles
-			disable abilty to delete others comments
-			*/

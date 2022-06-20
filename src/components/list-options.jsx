@@ -9,25 +9,30 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
 export default function ListOptions({ topic }) {
-	const [orderToggle, setOrderToggle] = useState({order: "ASC", icon: <ArrowUpwardIcon/>});
+	const [orderToggle, setOrderToggle] = useState({order: "ASC", order_name: "ascending", icon: <ArrowUpwardIcon/>});
 	// Order must be 'ASC' or 'DESC'.
 
-	function handleNavClick() {
+	function handleOrderClick() {
 		return orderToggle.order === "DESC"
-			? setOrderToggle({ order: "ASC", icon: <ArrowUpwardIcon /> })
-			: setOrderToggle({ order: "DESC", icon: <ArrowDownwardIcon /> });
+			? setOrderToggle({ order: "ASC", order_name: "ascending", icon: <ArrowUpwardIcon /> })
+			: setOrderToggle({ order: "DESC", order_name: "descending", icon: <ArrowDownwardIcon /> });
 	}
 
 	return (
 		<div id='list-options' className='dropdown'>
 			<button className='dropbtn'>
 				<FilterListRoundedIcon />
+				<p id='order-toggle__innerText'>{orderToggle.order_name}</p>
 			</button>
 			<div className='dropdown-content'>
-				<button className='dropbtn' onClick={handleNavClick}>
+				<button
+					id='order-toggle'
+					className='dropdown-inner-content'
+					onClick={handleOrderClick}
+				>
 					{orderToggle.icon}
 				</button>
-<NavLink				
+				<NavLink
 					id='Alpha'
 					className='dropdown-inner-content'
 					to={

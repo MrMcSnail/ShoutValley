@@ -1,11 +1,9 @@
 import { addVote } from "../utils/api";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbDown from "@mui/icons-material/ThumbDown";
-import { useContext, useState } from "react";
-import { UserContext } from "../contexts/User";
+import { useState } from "react";
 
-export default function AddVotePip({ votes, article_id }) {
-	const {auth}= useContext(UserContext);
+export default function AddVotePip({ votes, article_id, disableVotes }) {
 	const [voteChange, setVoteChange] = useState(0);
 	const [err, setErr] = useState(null);
 
@@ -16,7 +14,9 @@ export default function AddVotePip({ votes, article_id }) {
 			addVote(article_id, increment).catch((err) => {
 				voteChange((curr) => curr - increment);
 				setErr(
-					alert(`Oops! we couldn't add your vote. Refresh the page and try again.`)
+					alert(
+						`Oops! we couldn't add your vote. Refresh the page and try again.`
+					)
 				);
 			});
 		} else {
@@ -29,7 +29,7 @@ export default function AddVotePip({ votes, article_id }) {
 		<div className='article__additional-info'>
 			<button
 				className='vote'
-				disabled={err || !auth}
+				disabled={err || disableVotes}
 				onClick={() => {
 					handleVote(1);
 				}}
@@ -40,14 +40,13 @@ export default function AddVotePip({ votes, article_id }) {
 
 			<button
 				className='vote'
-				disabled={err || !auth}
+				disabled={err || disableVotes}
 				onClick={() => {
 					handleVote(-1);
 				}}
 			>
 				<ThumbDown />
 			</button>
-			{(auth)? <></> : <p>Please login to vote for articles</p>}
 		</div>
-	)
+	);
 }

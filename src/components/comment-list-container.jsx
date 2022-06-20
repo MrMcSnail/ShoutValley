@@ -4,10 +4,9 @@ import { fetchComments } from "../utils/api";
 import { useParams } from "react-router-dom";
 import NewCommentForm from "./new-comment-form";
 
-export default function CommentListContainer() {
+export default function CommentListContainer({error, setError}) {
 	const [comments, setComments] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
-	const [error, setError] = useState(null);
 	const { article_id } = useParams();
 	
 	useEffect(() => {
@@ -20,9 +19,9 @@ export default function CommentListContainer() {
 				setIsLoading(false);
 			})
 			.catch((err) => {
-				setError({ err: `Somethings gone wrong.` });
+				setError({ err: `Something's gone wrong. Please refresh the page.` });
 			});
-	}, [article_id]);
+	}, [article_id, setError]);
 
 	const commentList = comments
 		.slice(0)
@@ -37,9 +36,6 @@ export default function CommentListContainer() {
 			);
 		});
 
-	if (error) {
-		return <h2>{error.err}</h2>;
-	} else {
 		return isLoading ? (
 			<h2 className='loading-tag'>Loading</h2>
 		) : (
@@ -49,4 +45,3 @@ export default function CommentListContainer() {
 			</section>
 		);
 	}
-}

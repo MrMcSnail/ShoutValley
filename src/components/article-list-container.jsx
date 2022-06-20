@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import ArticleCard from "./article-card";
 import { fetchArticles } from "../utils/api";
 import { useSearchParams } from "react-router-dom";
-import ListOptions from "./list-options";
+
 
 export default function ArticleListContainer() {
 	const [isLoading, setIsLoading] = useState(true);
@@ -36,7 +36,6 @@ export default function ArticleListContainer() {
 			<h2 className='loading-tag'>Loading</h2>
 		) : (
 			<section className="article-list-container">
-				<ListOptions topic={searchParams.get("topic")} />
 				<ul className='article-list'>{articleList}</ul>
 			</section>
 		);

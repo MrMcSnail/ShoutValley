@@ -39,9 +39,14 @@ export const deleteComment = (comment_id) => {
 
 export function postComment(article_id, body, username) {
 	return shoutValleyApi.post(`/articles/${article_id}/comments`, {username, body}).catch((e)=>{console.log(e.response.data.msg)});
-}
+};
 
 export function addVote(article_id, inc_votes) {
 	return shoutValleyApi.patch(`/articles/${article_id}`, {inc_votes});
+};
 
+export function fetchUsers() {
+	return shoutValleyApi.get(`/users`).then(({ data }) => {
+		return data.users;
+	});
 }
